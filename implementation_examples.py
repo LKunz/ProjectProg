@@ -1,8 +1,6 @@
 # This file implement examples of the different algorithms
 
-# Appelez les hendeks siouplait
-
-# Import packages
+# Import files
 from Caesar import CaesarEncrypt, CaesarDecrypt
 from Substitution import SubstitutionEncrypt, SubstitutionDecrypt
 from Symmetric import SymmetricEncrypt, SymmetricDecrypt
@@ -12,8 +10,8 @@ from Freq_analysis import Freq
 # Caesar cipher
 text = "I love programming"
 key = 2
-ciphertext = CaesarEncrypt(text, key) # Encryption
-plaintext = CaesarDecrypt(ciphertext, key) # Decryption
+ciphertext = CaesarEncrypt(text, key)
+plaintext = CaesarDecrypt(ciphertext, key)
 print(ciphertext)
 print(plaintext)
 print('-----------------------')
@@ -30,8 +28,8 @@ print('-----------------------')
 # Symmetric
 text = "I love programming"
 key = "code"
-ciphertext = SymmetricEncrypt(text, key) # Encryption
-plaintext = SymmetricDecrypt(ciphertext, key) # Decryption
+ciphertext = SymmetricEncrypt(text, key)
+plaintext = SymmetricDecrypt(ciphertext, key)
 print(ciphertext)
 print(plaintext)
 print('-----------------------')

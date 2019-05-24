@@ -1,4 +1,4 @@
-# This file illustrates the concept of frequency analysis using a basic example
+# This file contains functions that implement a basic frequency analysis
 
 import matplotlib.pyplot as plt
 

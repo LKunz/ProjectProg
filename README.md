@@ -16,7 +16,7 @@ Clone this repo to your local machine using https://github.com/LKunz/ProjectProg
 
 ### Code Examples
 
-See [implementation_examples.py](implementation_examples.py) for examples on how our algortihms can be used.
+See [implementation_examples.py](implementation_examples.py) for examples on the algorithms.
 
 Ici mettre des examples de comment marche l'interface.
 

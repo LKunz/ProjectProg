@@ -32,4 +32,4 @@ See also the list of [contributors](https://github.com/LKunz/ProjectProg/contrib
 
 ### License
 
-See the [LICENSE.md](LICENSE.md) file for details.
+See the [LICENSE](LICENSE) file for details.

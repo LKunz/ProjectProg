@@ -1,11 +1,26 @@
 # Project Programming
 
 The goal of this project is to implement some encryption and decryption algorithms by means of a Graphical User Interface (GUI).
-See the .pdf for more information.
+
+### Content
+* Caesar cipher (Caesar.py)
+* A monoalphabetic substitution cipher (Substitution.py)
+* A polyalphabetic substitution cipher (Symmetric.py)
+* The RSA algorithm (RSA.py)
+* Some implementation examples (implementation_examples.py)
+* A user-friendly interface for testing (interface.py)
 
 ### Installing
 
 Clone this repo to your local machine using https://github.com/LKunz/ProjectProg.git 
+
+### Code Example
+
+Ici mettre des examples de comment marche l'interface.
+
+### Tests
+
+Describe and show how to run the tests with code examples.
 
 ### Authors
 
@@ -15,3 +30,6 @@ Clone this repo to your local machine using https://github.com/LKunz/ProjectProg
 
 See also the list of [contributors](https://github.com/LKunz/ProjectProg/contributors) who participated in this project.
 
+### License
+
+See the [LICENSCE.md] file for details.

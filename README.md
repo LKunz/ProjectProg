@@ -14,7 +14,9 @@ The goal of this project is to implement some encryption and decryption algorith
 
 Clone this repo to your local machine using https://github.com/LKunz/ProjectProg.git 
 
-### Code Example
+### Code Examples
+
+See [implementation_examples.py](implementation_examples.py) for examples on how our algortihms can be used.
 
 Ici mettre des examples de comment marche l'interface.
 

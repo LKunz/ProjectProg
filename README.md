@@ -1,4 +1,4 @@
-# Project Programming 
+# Project Programming
 
 The goal of this project is to implement some encryption and decryption algorithms by means of a Graphical User Interface (GUI).
 

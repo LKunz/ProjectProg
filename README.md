@@ -1,6 +1,6 @@
 # Project Programming 
 
-The goal of this project is to implement some encryption and decryption algorithms as well as creating a GUI that implements them.
+The goal of this project is to implement some encryption and decryption algorithms by means of a Graphical User Interface (GUI).
 
 ## Getting Started
 
@@ -16,9 +16,7 @@ Give examples
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
+Clone this repo to your local machine using https://github.com/LKunz/ProjectProg.git
 
 ```
 Give the example

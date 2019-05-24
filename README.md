@@ -8,9 +8,9 @@ Clone this repo to your local machine using https://github.com/LKunz/ProjectProg
 
 ### Authors
 
-* **Luc Kunz**
-* **David Diserens**
-* **Manu Virgolin**
+* **L. Kunz**
+* **D. Diserens**
+* **M. Virgolin**
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/LKunz/ProjectProg/contributors) who participated in this project.
 

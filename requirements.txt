@@ -3,6 +3,7 @@
 
 # Basic packages
 matplotlib
+numpy
 
 # For the interface to run
 kivy

@@ -11,7 +11,7 @@ The goal of this project is to implement some encryption and decryption algorith
 * A user-friendly interface for testing (interface.py)
 
 ### Prerequisites
-(...)
+kivy
 
 ### How to run the interface?
 

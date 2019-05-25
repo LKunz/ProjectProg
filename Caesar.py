@@ -1,4 +1,4 @@
-# This file contains functions that implements Caesar cipher algorithm
+# This file contains functions that implement Caesar cipher algorithm
 
 def CaesarEncrypt(plaintext, key):
     """ Implement Caesar cipher encryption
@@ -8,9 +8,9 @@ def CaesarEncrypt(plaintext, key):
         key (int): the key used for shifting
         
     Algorithm:
-        Convert letters in plaintext to numbers (A → 0, B → 1, ..., Z → 25)
+        Convert letters in plaintext into numbers (A → 0, B → 1, ..., Z → 25)
         Apply following formula: E(x) = (x + key) mod 26 (shifting)
-        Convert back shifted numbers to letters (0 → A, 1 → B, ..., 25 → Z)
+        Convert back shifted numbers into letters (0 → A, 1 → B, ..., 25 → Z)
         
     Return:
         Encrypted version of plaintext (str)
@@ -62,9 +62,9 @@ def CaesarDecrypt(ciphertext, key):
         key (int): the key used for encryption
         
     Algorithm:
-        Convert letters to numbers (A → 0, B → 1, ..., Z → 25)
+        Convert letters into numbers (A → 0, B → 1, ..., Z → 25)
         Apply following formula D(x) = (x - key) mod 26 (shifting back)
-        Convert back shifted numbers to letters (0 → A, 1 → B, ..., 25 → Z)
+        Convert back shifted numbers into letters (0 → A, 1 → B, ..., 25 → Z)
         
     Return:
         Decrypted version of ciphertext (str)

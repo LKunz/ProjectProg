@@ -10,9 +10,13 @@ The goal of this project is to implement some encryption and decryption algorith
 * Some implementation examples (implementation_examples.py)
 * A user-friendly interface for testing (interface.py)
 
-### Installing
+### How to run the interface?
 
-Clone this repo to your local machine using https://github.com/LKunz/ProjectProg.git 
+```
+git clone https://github.com/LKunz/ProjectProg.git
+cd ProjectProg
+python interface.py
+```
 
 ### Code Examples
 

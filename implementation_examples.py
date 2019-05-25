@@ -1,4 +1,4 @@
-# This file implement examples of the different algorithms
+# This file implements examples of the different algorithms
 
 # Import files
 from Caesar import CaesarEncrypt, CaesarDecrypt

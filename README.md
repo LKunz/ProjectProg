@@ -11,6 +11,7 @@ The goal of this project is to implement some encryption and decryption algorith
 * A user-friendly interface for testing (interface.py)
 
 ### Requirements
+Python 3 is required
 In order to run the interface you will need some libraries. See [requirements.txt](requirements.txt).
 
 ### How to run the interface?

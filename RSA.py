@@ -150,7 +150,7 @@ def make_text(blocks, size=3):
     Recover text from block of defined size
     
     Parameters:
-        blocks (list): list of integers to convert to text
+        blocks (list): list of integers to convert into text
         size (int): size of each block we want to convert
         
     Algorithm:
@@ -224,7 +224,7 @@ def EncryptRSA(plaintext, pub_key):
     # Get e and n from public key
     e, n = pub_key
     
-    # Convert plaintext to blocks
+    # Convert plaintext into blocks
     blocks = make_blocks(plaintext, n)
     
     # Encrypt blocks using formula (C = M^e mod n)
@@ -265,7 +265,7 @@ def DecryptRSA(cipher, priv_key):
     plain_blocks = [(block ** d) % n \
                     for block in cipher]
     
-    # Convert to text
+    # Convert into text
     plaintext = make_text(plain_blocks)
                             
     # Return plaintext (string)

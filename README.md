@@ -11,9 +11,8 @@ The goal of this project is to implement some encryption and decryption algorith
 * A user-friendly interface for testing (interface.py)
 
 ### Requirements
-Python 3.x is required
 
-In order to run the interface you will need some libraries. See [requirements.txt](requirements.txt).
+In order to run the interface you will the Kivy library. Click [https://kivy.org/doc/stable/installation/installation.html](here) for more information on how to install Kivy.
 
 ### How to run the interface?
 ```

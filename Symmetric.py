@@ -9,10 +9,10 @@ def SymmetricEncrypt(plaintext, key):
         key (str): the key used for encryption
         
     Algorithm:
-        Convert plaintext and key to numbers (position in alphabet) 
+        Convert plaintext and key into numbers (position in alphabet) 
           starting from 0 to 25
         Add letters in plaintext and letters in key (using blocks)
-        Convert resulting code back to letters
+        Convert resulting code back into letters
         
     Return:
         Encrypted version of plaintext (upper cases) (str)

@@ -11,7 +11,7 @@ The goal of this project is to implement some encryption and decryption algorith
 * A user-friendly interface for testing (interface.py)
 
 ### Requirements
-Python 3 is required
+Python 3.x is required
 
 In order to run the interface you will need some libraries. See [requirements.txt](requirements.txt).
 
@@ -19,7 +19,7 @@ In order to run the interface you will need some libraries. See [requirements.tx
 ```
 git clone https://github.com/LKunz/ProjectProg.git
 cd ProjectProg
-python interface.py
+python3 interface.py
 ```
 
 ### Code Examples

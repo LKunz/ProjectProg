@@ -10,6 +10,9 @@ The goal of this project is to implement some encryption and decryption algorith
 * Some implementation examples (implementation_examples.py)
 * A user-friendly interface for testing (interface.py)
 
+### Prerequisites
+(...)
+
 ### How to run the interface?
 
 ```

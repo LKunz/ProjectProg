@@ -10,8 +10,10 @@ The goal of this project is to implement some encryption and decryption algorith
 * Some implementation examples (implementation_examples.py)
 * A user-friendly interface for testing (interface.py)
 
-### Prerequisites
+### Requirements
 kivy
+
+see [requirements.txt](requirements.txt)
 
 ### How to run the interface?
 

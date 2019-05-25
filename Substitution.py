@@ -81,7 +81,7 @@ def SubstitutionDecrypt(ciphertext, key):
         key (dic): the key used for encryption
         
     Algorithm:
-        Use the key to convert ciphertext to plaintext by assigning each
+        Use the key to convert ciphertext into plaintext by assigning each
           letter of the ciphertext to its counterparty in the key
         
     Return:

@@ -40,14 +40,15 @@ print('-----------------------')
 #Freq(text, target, hist=True)
 #cipher1 = CaesarEncrypt(text, 3)
 #Freq(cipher1, target, hist=True)
-##key, cipher2 = SubstitutionEncrypt(text)
-##Freq(cipher2, target, hist=True)
+#key, cipher2 = SubstitutionEncrypt(text)
+#Freq(cipher2, target, hist=True)
 #cipher3 = SymmetricEncrypt(text, 'This is a key')
 #Freq(cipher3, target, hist=True)
+#print('-----------------------')
 
 # RSA
 text = "I love programming!?0"
-p = 17
+p = 61
 q = 97
 publ_key, priv_key = generate_keypair(p, q)
 # Encryption using public key

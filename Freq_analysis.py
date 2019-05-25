@@ -1,6 +1,5 @@
-# This file contains functions that implement a basic frequency analysis
-
-import matplotlib.pyplot as plt
+# This file contains a function that implements a basic frequency analysis
+# Required: nltk.tokenize, matplotlib.pyplot
 
 def Freq(text, target, hist=False):
     """ Implement frequency analysis of text
@@ -12,10 +11,10 @@ def Freq(text, target, hist=False):
           either 'words' or 'characters'
         
     Algorithm:
-        tranform all letters to lowercases
-        compute frenquency of each characters or word  
+        Tranform all letters to lowercases
+        Compute frenquency of each characters or word  
         
-    Returns:
+    Return:
         freq (dic): dictionary of frequencies
         
     Examples:
@@ -25,13 +24,14 @@ def Freq(text, target, hist=False):
         
         text = "I love programming and data science! :)"
         print(Freq(text, 'words', hist=False))
-        >>> {'i': 1, 'love': 1, 'programming': 1, 'and': 1, 'data': 1, 'science': 1}
+        >>> {'i': 1, 'love': 1, 'programming': 1, 'and': 1, 'data': 1, 
+            'science': 1}
     """
     
     # Make all letters lowercase
     text = text.lower()
 
-    # Create list of token  
+    # Create list of tokens 
     if target not in ['words', 'characters']:
         raise Exception('Error: target')
     elif (target == 'words'):
@@ -44,27 +44,27 @@ def Freq(text, target, hist=False):
         # Define characters that we want the frequency of (can be changed)
         letters = "abcdefghijklmnopqrstuvwxyz"
         # Remove spaces and punctuation (all characters not in letters)
-        for l in text:
-            if l not in letters:
-                text = text.replace(l, "")
+        for letter in text:
+            if letter not in letters:
+                text = text.replace(letter, "")
         # Sort text 
         words = "".join(sorted(text)) 
         
-    # Create dictionary of letter frequencies
+    # Create dictionary of letter/word frequencies
     freq = {}
-    for l in words:
-        if l in freq:
-            freq[l] += 1 # Increment
+    for item in words:
+        if item in freq:
+            freq[item] += 1 # Increment
         else:
-            freq[l] = 1 # Initialization
+            freq[item] = 1 # Initialization
     
     # Plot histogram     
     if hist == True:
+        import matplotlib.pyplot as plt
         plt.bar(range(len(freq)), list(freq.values()), align="center")
         plt.xticks(range(len(freq)), list(freq.keys()))
         plt.xlabel("Character")
         plt.ylabel("Frequency")
-        #plt.savefig('Freqintext.png')
         plt.show()
         plt.close()
     else:

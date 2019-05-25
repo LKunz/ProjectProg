@@ -1,4 +1,4 @@
-# This file contains functions that implements a monoalphabetic substitution cipher
+# This file contains functions that implement a monoalphabetic substitution cipher
 
 import random
 
@@ -14,16 +14,18 @@ def SubstitutionEncrypt(plaintext, key={}):
         If not specified, generate a key of the form {'A':'S', 'B':'f',
           ..., 'y':'J','z':'Q'} by randomly shuffeling and assigning 
           uppercase and lowercase letters to others
-        Encrypt plaintext using the key by replacing each letter by its randomly
-          generated letter.
+        Encrypt plaintext using the key by replacing each letter by its 
+          randomly generated counterpart
         
-    Returns:
-        Encrypted version of plaintext
+    Return:
+        key (dic)
+        Encrypted version of plaintext (str)
         
     Example:
         text = "I love programming"
         key, ciphertext = SubstitutionEncrypt(text)
         print(key)
+        print(ciphertext)
         >>> {'A': 'H', 'B': 'J', 'C': 'a', 'D': 'p', 'E': 'J', 'F': 'r', 
         'G': 'C', 'H': 'n', 'I': 's', 'J': 'O', 'K': 'k', 'L': 'U', 'M': 'c', 
         'N': 'h', 'O': 'P', 'P': 'y', 'Q': 'U', 'R': 'G', 'S': 'Q', 'T': 'D', 
@@ -32,18 +34,17 @@ def SubstitutionEncrypt(plaintext, key={}):
         'i': 'C', 'j': 'F', 'k': 'B', 'l': 't', 'm': 'p', 'n': 'W', 'o': 'U', 
         'p': 'C', 'q': 'h', 'r': 'O', 's': 'b', 't': 'B', 'u': 'j', 'v': 'W', 
         'w': 'q', 'x': 'y', 'y': 'i', 'z': 'I'}
-        print(ciphertext)
-        >>> s tUWD COUhOlppCWh
+        s tUWD COUhOlppCWh
     
     Remarks:
         Only letters (lower case and uppercase) are encrypted, not numbers 
           or special characters ('?' ' ' or '*' for example)
-        The key is generated randomly. It thus changes everytime you run the
+        If not specified, the key is generated randomly. It thus changes everytime you run the
           code
         
     """
     
-    # Enter characters included in algorithm
+    # Enter characters included in algorithm (for generating key)
     letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
     
     # Define output
@@ -52,21 +53,25 @@ def SubstitutionEncrypt(plaintext, key={}):
     # Generate key randomly based on characters in letters
     numbers = [-1]
     if key == {}:
-        for l in letters:
-            tmp = -1
-            while tmp in numbers: # Ensure not twice same output    
-                tmp = random.randint(0,len(letters)-1) # Generate random number
-            numbers.append(tmp)
-            key[l] = letters[tmp] # Assign random letter
+        for letter in letters:
+            num = -1
+            while num in numbers: # Ensure not twice same output    
+                num = random.randint(0,len(letters)-1) # Generate random number
+            numbers.append(num)
+            key[letter] = letters[num] # Assign random letter
     
-    # Encryption (only characters in letters)       
-    for l in plaintext:
-        if l in letters:
-            ciphertext += key[l] 
+    # Get letters to be encrypted
+    letter_keys = key.keys()
+    
+    # Encryption (only characters in keys)       
+    for letter in plaintext:
+        if letter in letter_keys:
+            ciphertext += key[letter] 
         else:
-            ciphertext += l
+            ciphertext += letter
             
     return key, ciphertext
+
 
 def SubstitutionDecrypt(ciphertext, key):
     """ Implement monoalphabetic Substitution decryption
@@ -76,11 +81,11 @@ def SubstitutionDecrypt(ciphertext, key):
         key (dic): the key used for encryption
         
     Algorithm:
-        Use the key to convert ciphertext into plaintext by assigning each
+        Use the key to convert ciphertext to plaintext by assigning each
           letter of the ciphertext to its counterparty in the key
         
-    Returns:
-        Decrypted version of ciphertext
+    Return:
+        Decrypted version of ciphertext (str)
         
     Example:
         text = "s tUWD COUhOlppCWh"
@@ -112,10 +117,10 @@ def SubstitutionDecrypt(ciphertext, key):
     decryption_key = {v: k for k, v in key.items()}
     
     # Decryption 
-    for l in ciphertext:
-        if l in values: # If has been encrypted
-            plaintext += decryption_key[l]
+    for letter in ciphertext:
+        if letter in values: # If has been encrypted
+            plaintext += decryption_key[letter]
         else:
-            plaintext += l # If has not been encrypted
+            plaintext += letter # If has not been encrypted
     
     return plaintext

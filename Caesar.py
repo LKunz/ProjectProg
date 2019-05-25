@@ -8,12 +8,12 @@ def CaesarEncrypt(plaintext, key):
         key (int): the key used for shifting
         
     Algorithm:
-        Convert letters in plaintext into numbers (A → 0, B → 1, ..., Z → 25)
-        Apply following formula E(x) = (x + key) mod 26 (shifting)
-        Convert back shifted numbers into new letters
+        Convert letters in plaintext to numbers (A → 0, B → 1, ..., Z → 25)
+        Apply following formula: E(x) = (x + key) mod 26 (shifting)
+        Convert back shifted numbers to letters (0 → A, 1 → B, ..., 25 → Z)
         
-    Returns:
-        Encrypted version of plaintext
+    Return:
+        Encrypted version of plaintext (str)
         
     Example:
         mes = "I love programming"
@@ -37,17 +37,17 @@ def CaesarEncrypt(plaintext, key):
     # Encryption (letters only)
     for char in plaintext: 
         if char in lower: # If char is a letter
-            tmp = lower.find(char) # Find position of letter in alphabet
-            tmp += key # Shift 
-            tmp = tmp % len(lower) # Resize into [0,25]
-            tmp = lower[tmp] # Find post shift letter
-            code += tmp # Add letter to result
+            num = lower.find(char) # Find position of letter in alphabet
+            num += key # Shift 
+            num = num % len(lower) # Resize into [0,25]
+            shifted = lower[num] # Find post shift letter
+            code += shifted # Add letter to result
         elif char in upper: # Same as above for uppercases
-            tmp = upper.find(char)
-            tmp += key
-            tmp = tmp % len(upper)
-            tmp = upper[tmp]
-            code += tmp
+            num = upper.find(char)
+            num += key
+            num = num % len(upper)
+            shifted = upper[num]
+            code += shifted
         else:
             code += char # If not a letter: add char to result
    
@@ -59,15 +59,15 @@ def CaesarDecrypt(ciphertext, key):
     
     Parameters:
         ciphertext (str): encrypted text to be decrypted
-        key (int): the key used for encoding using CaesarEncrypt()
+        key (int): the key used for encryption
         
     Algorithm:
-        Convert letters into numbers (A → 0, B → 1, ..., Z → 25)
+        Convert letters to numbers (A → 0, B → 1, ..., Z → 25)
         Apply following formula D(x) = (x - key) mod 26 (shifting back)
-        Convert back shifted numbers into letters
+        Convert back shifted numbers to letters (0 → A, 1 → B, ..., 25 → Z)
         
-    Returns:
-        Decrypted version of ciphertext
+    Return:
+        Decrypted version of ciphertext (str)
         
     Example:
         mes = "J mpwf qsphsbnnjoh"
@@ -85,22 +85,23 @@ def CaesarDecrypt(ciphertext, key):
     lower = "abcdefghijklmnopqrstuvwxyz"
     upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     
+    # Define output
     code = ""
     
     # Decryption (letters only)
     for char in ciphertext: 
         if char in lower: # If char is a letter
-            tmp = lower.find(char) # Find position of letter in alphabet
-            tmp -= key # Shift back (only difference with CaesarEncrypt)
-            tmp = tmp % len(lower) # Resize into [0,25]
-            tmp = lower[tmp] # Find post shift letter
-            code += tmp # Add letter to result
+            num = lower.find(char) # Find position of letter in alphabet
+            num -= key # Shift back (only difference with CaesarEncrypt)
+            num = num % len(lower) # Resize into [0,25]
+            shifted = lower[num] # Find post shift letter
+            code += shifted # Add letter to result
         elif char in upper:
-            tmp = upper.find(char)
-            tmp -= key
-            tmp = tmp % len(upper)
-            tmp = upper[tmp]
-            code += tmp
+            num = upper.find(char)
+            num -= key
+            num = num % len(upper)
+            shifted = upper[num]
+            code += shifted
         else:
             code += char # If not a letter: add char to result
    

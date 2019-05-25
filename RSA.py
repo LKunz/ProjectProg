@@ -1,4 +1,4 @@
-# This file contains functions that implements the RSA algortihm
+# This file contains functions that implement the RSA algortihm
 # Inspiration: https://gist.github.com/JonCooperWorks/5314103
 
 # Import packages
@@ -53,8 +53,8 @@ def generate_keypair(p, q):
         Compute n
         Compute e and d using previously defined functions
         
-    Returns:
-        public_key, private_key (tuple) : both keys
+    Return:
+        public_key, private_key : both keys (tuples)
         
     Example:
         p = 17
@@ -109,10 +109,10 @@ def make_blocks(text, n, size=3):
     Algorithm:
         Use (shifted) ASCII to match all characters in 
           text to a number in [00,99]
-        Divide number into blocks of length size
+        Divide number into blocks of same length (size)
         
-    Returns:
-        Blocks version of text
+    Return:
+        Blocks version of text (list)
         
     Example:
         message = "I love programming"
@@ -133,11 +133,12 @@ def make_blocks(text, n, size=3):
     # Encode characters into blocks    
     else: 
         for i in text:
-            tmp = str(ord(i) - 32) # To be in good range (<3 numbers)
+            tmp = str(ord(i) - 32) # To be in good range (< 3 numbers)
             if (len(tmp) == 1): # Add zero at the start
                 tmp = '0' + tmp
             blocks += tmp
         
+        # Make blocks
         blocks = [int(blocks[i * (size):(i + 1) * (size)]) \
                   for i in range((len(blocks) + size - 1) // (size) )]
         
@@ -156,8 +157,8 @@ def make_text(blocks, size=3):
         Merge blocks
         Use (shifted) ASCII to match all resulting integers to characters
         
-    Returns:
-        text version of blocks
+    Return:
+        text version of blocks (str)
         
     Example:
         blocks = [410, 76, 798, 669, 8, 82, 797, 182, 657, 777, 737, 871]
@@ -166,8 +167,8 @@ def make_text(blocks, size=3):
         >>> I love programming
     
     Remarks:
-        The size must be the same as in function make_blocks for the algorithm
-          to work properly
+        The size must be the same as in function make_blocks for the
+          algorithm to work properly
     
     """
     
@@ -184,17 +185,13 @@ def make_text(blocks, size=3):
         
         text_tmp += tmp
             
-    text_tmp = [int(text_tmp[i * (2):(i + 1) * (2)]) for i in range((len(text_tmp) + 2 - 1) // (2) )]
+    text_tmp = [int(text_tmp[i * (2):(i + 1) * (2)]) \
+                for i in range((len(text_tmp) + 2 - 1) // (2) )]
     
     for i in text_tmp:
         text += chr(i+32) # Shifted match
     
     return text
-
-# Same blocks and same key as before
-blocks = [410, 76, 798, 669, 8, 82, 797, 182, 657, 777, 737, 871]
-text = make_text(blocks, size=3)
-print(text)
 
 
 def EncryptRSA(plaintext, pub_key):
@@ -208,16 +205,16 @@ def EncryptRSA(plaintext, pub_key):
         Implement RSA agorithm
         See: https://people.csail.mit.edu/rivest/Rsapaper.pdf for more info
         
-    Returns:
+    Return:
         Encrypted version of plaintext (list of blocks)
         
     Example:
-        public_key = (3379, 4267) # Created with generate_keypair(p, q)
-        plain = "I love programming"
+        public_key = (3917, 5917) # Created with generate_keypair(p, q)
+        plain = "I love programming!"
         cipher = EncryptRSA(plain, public_key)
         print(cipher)
-        >>> [2881, 2501, 3552, 471, 1175, 3968, 2848, 2697,
-             1025, 3309, 2987, 1611]
+        >>> [2447, 286, 5648, 2579, 2346, 1127, 3400, 609, 2209,
+             4075, 1805, 420, 1]
         
     Remarks:
         All characters are encrypted (including spaces, ponctuation, etc.)
@@ -227,10 +224,10 @@ def EncryptRSA(plaintext, pub_key):
     # Get e and n from public key
     e, n = pub_key
     
-    # Convert plaintext into blocks
+    # Convert plaintext to blocks
     blocks = make_blocks(plaintext, n)
     
-    # Convert blocks using formula (C = M^e mod n)
+    # Encrypt blocks using formula (C = M^e mod n)
     cipher = [(block ** e) % n for block in blocks]
     
     # Return list of encrypted blocks
@@ -252,8 +249,9 @@ def DecryptRSA(cipher, priv_key):
         Decrypted version of chiphertext (str)
         
     Example:
-        private_key = (3849, 4267) # Created with generate_keypair(p, q)
-        cipher = [1855, 1181, 373, 2952, 4173, 2247, 168, 3303, 2182, 3320, 2306, 922, 1]
+        private_key = (4613, 5917) # Created with generate_keypair(p, q)
+        cipher = [2447, 286, 5648, 2579, 2346, 1127, 3400, 609, 2209, 4075, 
+                  1805, 420, 1]
         plain = DecryptRSA(cipher, private_key)
         print(plain)
         >>> I love programming!
@@ -263,11 +261,11 @@ def DecryptRSA(cipher, priv_key):
     # Get d and n from private key
     d, n = priv_key
     
-    # Apply formula (M = C^d mod n)
+    # Apply decryption formula (M = C^d mod n)
     plain_blocks = [(block ** d) % n \
                     for block in cipher]
     
-    # Convert into text
+    # Convert to text
     plaintext = make_text(plain_blocks)
                             
     # Return plaintext (string)

@@ -12,7 +12,7 @@ The goal of this project is to implement some encryption and decryption algorith
 
 ### Requirements
 
-In order to run the interface you will the Kivy library. Click [here](https://kivy.org/doc/stable/installation/installation.html) for more information on how to install Kivy.
+In order to run the interface you will need the Kivy library. Click [here](https://kivy.org/doc/stable/installation/installation.html) for more information on how to install Kivy.
 
 ### How to run the interface?
 ```

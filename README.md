@@ -14,7 +14,6 @@ The goal of this project is to implement some encryption and decryption algorith
 see [requirements.txt](requirements.txt)
 
 ### How to run the interface?
-
 ```
 git clone https://github.com/LKunz/ProjectProg.git
 cd ProjectProg
@@ -22,13 +21,11 @@ python interface.py
 ```
 
 ### Code Examples
-
 See [implementation_examples.py](implementation_examples.py) for examples on the algorithms.
 
 Ici mettre des examples de comment marche l'interface.
 
 ### Tests
-
 Describe and show how to run the tests with code examples.
 
 ### Authors

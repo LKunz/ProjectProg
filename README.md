@@ -8,18 +8,19 @@ The goal of this project is to implement some encryption and decryption algorith
 * A polyalphabetic substitution cipher (Symmetric.py)
 * The RSA algorithm (RSA.py)
 * Some implementation examples (implementation_examples.py)
-* A user-friendly interface for testing (interface.py)
+* A user-friendly interface for testing (main.py)
 
 ### Requirements
 
-In order to run the interface you will need the Kivy library. Click [here](https://kivy.org/doc/stable/installation/installation.html) for more information on how to install Kivy.
+In order to run the interface you will need the kivy library. Click [here](https://kivy.org/doc/stable/installation/installation.html) for more information on how to install kivy.
 
 ### How to run the interface?
 ```
 git clone https://github.com/LKunz/ProjectProg.git
 cd ProjectProg
-python3 interface.py
+python3 main.py
 ```
+Note that we only tried on Linux.
 
 ### Code Examples
 See [implementation_examples.py](implementation_examples.py) for examples on the algorithms.

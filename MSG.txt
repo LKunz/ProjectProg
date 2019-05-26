@@ -1,0 +1,1 @@
+Manu;znBp;A:r,B:C,C:e,D:x,E:Z,F:c,G:H,H:m,I:t,J:U,K:b,L:f,M:z,N:I,O:a,P:V,Q:v,R:k,S:O,T:P,U:M,V:u,W:s,X:T,Y:Q,Z:g,a:n,b:j,c:D,d:Y,e:K,f:A,g:W,h:i,i:h,j:q,k:G,l:E,m:F,n:B,o:R,p:w,q:S,r:J,s:X,t:y,u:p,v:N,w:d,x:o,y:l,z:L;

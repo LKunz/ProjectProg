@@ -1,0 +1,1272 @@
+<welcomewindow>:
+    welcome: welcome
+    FloatLayout:
+        canvas:
+            Color: 
+                rgb: 1,1,1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        Label:
+
+            id: welcome
+            pos_hint:{"x": 0.1, "top": 0.9}
+            size_hint: 0.8, 0.2
+            text: "Welcome to the best encryption program"
+            color: 143/255, 141/255, 142/255
+            bold: True
+            font_size: 40
+    
+        Button:
+            pos_hint:{"x":0, "y":0.6}
+            size_hint: 0.3,0.2
+            background_color : 0,0,0,0
+            text: "Get Started!"
+            color: 138/255,197/255,195/255
+            font_size: 30
+            bold: True
+            italic: True
+            on_release:
+                app.root.current = "choice"
+                root.manager.transition.direction = "left"              
+        
+<choicewindow>:
+    choice: choice
+    
+    FloatLayout:
+    
+        canvas:
+            Color: 
+                rgb: 1,1,1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        Label:
+            id: choice
+            pos_hint:{"x": 0.1, "top": 0.9}
+            size_hint: 0.5, 0.2
+            text: "What would you like to do?"
+            color: 143/255, 141/255, 142/255
+            bold: True
+            font_size: 40
+            
+        Button:
+            pos_hint:{"x":0, "y":0.55}
+            size_hint: 0.47,0.2
+            background_color : 0,0,0,0
+            text: "Encrypt your message"
+            color: 138/255,197/255,195/255
+            font_size: 30
+            bold: True
+            italic: True
+            on_release:
+                app.root.current = "encrypt"
+                root.manager.transition.direction = "left"
+        
+        Button:
+            pos_hint:{"x":0, "y":0.4}
+            size_hint: 0.47,0.2
+            background_color : 0,0,0,0
+            text: "Decrypt your message"
+            color: 138/255,197/255,195/255
+            font_size: 30
+            bold: True
+            italic: True
+            on_release:
+                app.root.current = "decrypt"
+                root.manager.transition.direction = "right"
+                
+        Button:
+            pos_hint:{"x":0.8, "y":0.0}
+            size_hint:0.2,0.1
+            background_color : 0,0,0,0
+            text: "Return"
+            color: 143/255, 141/255, 142/255
+            font_size: 30
+            bold: True
+            on_release:
+                app.root.current = "welcome"
+                root.manager.transition.direction = "right"
+    
+<encryptwindow>:
+    method: method
+    
+    
+    FloatLayout:
+    
+        canvas:
+            Color:
+                rgb: 1,1,1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        
+        Label:
+            id: choice
+            pos_hint:{"x": 0.1, "top": 0.9}
+            size_hint: 0.7, 0.2
+            text: "Please select your favorite method"
+            color: 143/255, 141/255, 142/255
+            bold: True
+            font_size: 40
+        
+        Label:
+            id: choice
+            pos_hint:{"x": 0.1, "top": 0.9}
+            size_hint: 0.7, 0.2
+            text: "Please select your favorite method"
+            color: 143/255, 141/255, 142/255
+            bold: True
+            font_size: 40
+        
+        Button:
+            id: method
+            text: 'Select'
+            color: 138/255,197/255,195/255
+            font_size: 30
+            bold: True
+            italic: True
+            background_color : 0,0,0,0
+            on_parent: dropdown.dismiss()
+            on_release: dropdown.open(self)
+            size_hint: 0.25, 0.1
+            pos_hint: {"x":0.0, "y":0.55}
+        
+        DropDown:
+            id: dropdown
+            on_select: method.text = '{}'.format(args[1])
+            
+            Button:
+                text: 'Caesar'
+                size_hint_y: None
+                color: 138/255,197/255,195/255
+                font_size: 30
+                bold: True
+                italic: True
+                background_color : 237/255,236/255,232/255,0
+                height: '48dp'
+                on_release: 
+                    dropdown.select('Caesar')
+                    app.root.current = "caesar"
+                    root.manager.transition.direction = "left"
+                    
+                
+            Button:
+                text: 'Substitution'
+                size_hint_y: None
+                color: 138/255,197/255,195/255
+                font_size: 30
+                bold: True
+                italic: True
+                background_color : 237/255,236/255,232/255,0
+                height: '48dp'
+                on_release: 
+                    dropdown.select('Substitution')
+                    app.root.current = "substitution"
+                    root.manager.transition.direction = "left"
+            
+            Button:
+                text: 'Symmetric'
+                size_hint_y: None
+                color: 138/255,197/255,195/255
+                font_size: 30
+                bold: True
+                italic: True
+                background_color : 237/255,236/255,232/255,0
+                height: '48dp'
+                on_release: 
+                    dropdown.select('Symmetric')
+                    app.root.current = "symmetric"
+                    root.manager.transition.direction = "left"
+            
+            Button:
+                text: 'RSA'
+                size_hint_y: None
+                color: 138/255,197/255,195/255
+                font_size: 30
+                bold: True
+                italic: True
+                background_color : 237/255,236/255,232/255,0
+                height: '48dp'
+                on_release: 
+                    dropdown.select('RSA')
+                    app.root.current = "rsa"
+                    root.manager.transition.direction = "left"
+        
+            
+        Button:
+            pos_hint:{"x":0.8, "y":0.0}
+            size_hint:0.2,0.1
+            background_color : 0,0,0,0
+            text: "Return"
+            color: 143/255, 141/255, 142/255
+            font_size: 30
+            bold: True
+            on_release:
+                app.root.current = "choice"
+                root.manager.transition.direction = "right" 
+                
+        Button:
+            pos_hint:{"x":0.8, "y":0.9}
+            size_hint:0.2,0.1
+            background_color : 0,0,0,0
+            text: "Info"
+            color: 120/255, 120/255, 200/255
+            font_size: 20
+            bold: True
+            on_release:
+                app.root.current = "info"
+                root.manager.transition.direction = "right"
+
+<decryptwindow>:
+    method: method
+    FloatLayout:
+    
+        canvas:
+            Color:
+                rgb: 1,1,1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        
+        Label:
+            id: choice
+            pos_hint:{"x": 0.1, "top": 0.9}
+            size_hint: 0.7, 0.2
+            text: "Please select your favorite method"
+            color: 143/255, 141/255, 142/255
+            bold: True
+            font_size: 40
+        
+        Button:
+            id: method
+            text: 'Select'
+            color: 138/255,197/255,195/255
+            font_size: 30
+            bold: True
+            italic: True
+            background_color : 0,0,0,0
+            on_parent: dropdown.dismiss()
+            on_release: dropdown.open(self)
+            size_hint: 0.25, 0.1
+            pos_hint: {"x":0.0, "y":0.55}
+        
+        DropDown:
+            id: dropdown
+            on_select: method.text = '{}'.format(args[1])
+            
+            Button:
+                text: 'Caesar'
+                size_hint_y: None
+                color: 138/255,197/255,195/255
+                font_size: 30
+                bold: True
+                italic: True
+                background_color : 237/255,236/255,232/255,0
+                height: '48dp'
+                on_release: 
+                    dropdown.select('Caesar')
+                    app.root.current = "dcaesar"
+                    root.manager.transition.direction = "left"
+                    
+                
+            Button:
+                text: 'Substitution'
+                size_hint_y: None
+                color: 138/255,197/255,195/255
+                font_size: 30
+                bold: True
+                italic: True
+                background_color : 237/255,236/255,232/255,0
+                height: '48dp'
+                on_release: 
+                    dropdown.select('Substitution')
+                    app.root.current = "dsubstitution"
+                    root.manager.transition.direction = "left"
+            
+            Button:
+                text: 'Symmetric'
+                size_hint_y: None
+                color: 138/255,197/255,195/255
+                font_size: 30
+                bold: True
+                italic: True
+                background_color : 237/255,236/255,232/255,0
+                height: '48dp'
+                on_release: 
+                    dropdown.select('Symmetric')
+                    app.root.current = "dsymmetric"
+                    root.manager.transition.direction = "left"
+            
+            Button:
+                text: 'RSA'
+                size_hint_y: None
+                color: 138/255,197/255,195/255
+                font_size: 30
+                bold: True
+                italic: True
+                background_color : 237/255,236/255,232/255,0
+                height: '48dp'
+                on_release: 
+                    dropdown.select('RSA')
+                    app.root.current = "drsa"
+                    root.manager.transition.direction = "left"
+        
+            
+        Button:
+            pos_hint:{"x":0.8, "y":0.0}
+            size_hint:0.2,0.1
+            background_color : 0,0,0,0
+            text: "Return"
+            color: 143/255, 141/255, 142/255
+            font_size: 30
+            bold: True
+            on_release:
+                app.root.current = "choice"
+                root.manager.transition.direction = "right"    
+        
+        Button:
+            pos_hint:{"x":0.8, "y":0.9}
+            size_hint:0.2,0.1
+            background_color : 0,0,0,0
+            text: "Info"
+            color: 120/255, 120/255, 200/255
+            font_size: 20
+            bold: True
+            on_release:
+                app.root.current = "info"
+                root.manager.transition.direction = "right"
+
+                
+<caesarwindow>:
+    caesarmsg: caesarmsg
+    key: key
+    FloatLayout:
+        canvas:
+            Color:
+                rgb: 1,1,1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        Label:
+            text:"Message to encrypt: "
+            font_size: 20
+            pos_hint:{"x": 0, "top": 1}
+            size_hint: 0.3, 0.1
+            color: 143/255, 141/255, 142/255
+            bold: True
+        TextInput:
+            id: caesarmsg
+            font_size: 16
+            multiline: True
+            pos_hint: {"x": 0.025 , "top":0.9}
+            size_hint: 0.95, 0.6
+               
+            
+        Label:
+            text:"Insert a key: "
+            font_size: 20
+            pos_hint:{"x": 0, "top": 0.275}
+            size_hint: 0.2, 0.1
+            color: 143/255, 141/255, 142/255
+            bold: True
+        
+        TextInput:
+            id: key
+            font_size: 20
+            multiline: True
+            pos_hint: {"x": 0.2 , "top":0.275}
+            size_hint: 0.4, 0.1
+            input_filter: "float"
+        
+              
+        Button:
+            text: 'Encrypt!'
+            pos_hint:{"x":0.625, "top":0.275}
+            size_hint:0.2,0.1
+            background_color : 0,0,0,0
+            color: 138/255,197/255,195/255
+            font_size: 40
+            bold: True
+            on_release:
+                root.encrypt()
+                root.manager.transition.direction = "left"
+            
+            
+        Button:
+            pos_hint:{"x":0.8, "y":0.0}
+            size_hint:0.2,0.1
+            background_color : 0,0,0,0
+            text: "Return"
+            color: 143/255, 141/255, 142/255
+            font_size: 30
+            bold: True
+            on_release:
+                app.root.current = "encrypt"
+                root.manager.transition.direction = "right"
+        
+        Button:
+            pos_hint:{"x":0.8, "y":0.9}
+            size_hint:0.2,0.1
+            background_color : 0,0,0,0
+            text: "Info"
+            color: 120/255, 120/255, 200/255
+            font_size: 20
+            bold: True
+            on_release:
+                app.root.current = "info"
+                root.manager.transition.direction = "right"
+        
+        Label:
+            text:"Caesar cipher method"
+            font_size: 20
+            pos_hint:{"x": 0.025, "top": 0.1}
+            size_hint: 0.25, 0.1
+            color: 138/255,197/255,195/255
+            bold: True
+            italic: True
+
+<substitutionwindow>:
+    substitutionmsg: substitutionmsg
+    key: key
+    
+    FloatLayout:
+        
+        canvas:
+            Color:
+                rgb: 1,1,1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+    
+        Label:
+            text:"Message to encrypt: "
+            font_size: 20
+            pos_hint:{"x": 0, "top": 1}
+            size_hint: 0.3, 0.1
+            color: 143/255, 141/255, 142/255
+            bold: True
+        
+        TextInput:
+            id: substitutionmsg
+            font_size: 16
+            multiline: True
+            pos_hint: {"x": 0.025 , "top":0.9}
+            size_hint: 0.95, 0.5
+        
+        Label:
+            text:"your key: "
+            font_size: 20
+            pos_hint:{"x": 0, "top": 0.275}
+            size_hint: 0.2, 0.1
+            color: 143/255, 141/255, 142/255
+            bold: True
+        
+        TextInput:
+            id: key
+            text: "A:r,B:C,C:e,D:x,E:Z,F:c,G:H,H:m,I:t,J:U,K:b,L:f,M:z,N:I,O:a,P:V,Q:v,R:k,S:O,T:P,U:M,V:u,W:s,X:T,Y:Q,Z:g,a:n,b:j,c:D,d:Y,e:K,f:A,g:W,h:i,i:h,j:q,k:G,l:E,m:F,n:B,o:R,p:w,q:S,r:J,s:X,t:y,u:p,v:N,w:d,x:o,y:l,z:L"
+            font_size: 20
+            multiline: True
+            pos_hint: {"x": 0.2 , "top":0.275}
+            size_hint: 0.7, 0.2
+              
+        Button:
+            text: 'Encrypt!'
+            pos_hint:{"x":0.725, "top":0.375}
+            size_hint:0.2,0.1
+            background_color : 0,0,0,0
+            color: 138/255,197/255,195/255
+            font_size: 40
+            bold: True
+            on_release:
+                root.encrypt()
+                root.manager.transition.direction = "left"
+            
+            
+        Button:
+            pos_hint:{"x":0.8, "y":0.0}
+            size_hint:0.2,0.1
+            background_color : 0,0,0,0
+            text: "Return"
+            color: 143/255, 141/255, 142/255
+            font_size: 30
+            bold: True
+            on_release:
+                app.root.current = "encrypt"
+                root.manager.transition.direction = "right"
+        
+        Button:
+            pos_hint:{"x":0.8, "y":0.9}
+            size_hint:0.2,0.1
+            background_color : 0,0,0,0
+            text: "Info"
+            color: 120/255, 120/255, 200/255
+            font_size: 20
+            bold: True
+            on_release:
+                app.root.current = "info"
+                root.manager.transition.direction = "right"
+        
+        Label:
+            text:"substitution cipher method"
+            font_size: 20
+            pos_hint:{"x": 0.025, "top": 0.1}
+            size_hint: 0.25, 0.1
+            color: 138/255,197/255,195/255
+            bold: True
+            italic: True
+
+<symmetricwindow>:
+    symmetricmsg: symmetricmsg
+    key: key
+    
+    FloatLayout:
+        
+        canvas:
+            Color:
+                rgb: 1,1,1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+    
+        Label:
+            text:"Message to encrypt: "
+            font_size: 20
+            pos_hint:{"x": 0, "top": 1}
+            size_hint: 0.3, 0.1
+            color: 143/255, 141/255, 142/255
+            bold: True
+        
+        TextInput:
+            id: symmetricmsg
+            font_size: 16
+            multiline: True
+            pos_hint: {"x": 0.025 , "top":0.9}
+            size_hint: 0.95, 0.6
+               
+            
+        Label:
+            text:"Insert a key: "
+            font_size: 20
+            pos_hint:{"x": 0, "top": 0.275}
+            size_hint: 0.2, 0.1
+            color: 143/255, 141/255, 142/255
+            bold: True
+        
+        TextInput:
+            id: key
+            font_size: 20
+            multiline: True
+            pos_hint: {"x": 0.2 , "top":0.275}
+            size_hint: 0.4, 0.1
+        
+              
+        Button:
+            text: 'Encrypt!'
+            pos_hint:{"x":0.625, "top":0.275}
+            size_hint:0.2,0.1
+            background_color : 0,0,0,0
+            color: 138/255,197/255,195/255
+            font_size: 40
+            bold: True
+            on_release:
+                root.encrypt()
+                root.manager.transition.direction = "left"
+            
+            
+        Button:
+            pos_hint:{"x":0.8, "y":0.0}
+            size_hint:0.2,0.1
+            background_color : 0,0,0,0
+            text: "Return"
+            color: 143/255, 141/255, 142/255
+            font_size: 30
+            bold: True
+            on_release:
+                app.root.current = "encrypt"
+                root.manager.transition.direction = "right"
+        
+        Button:
+            pos_hint:{"x":0.8, "y":0.9}
+            size_hint:0.2,0.1
+            background_color : 0,0,0,0
+            text: "Info"
+            color: 120/255, 120/255, 200/255
+            font_size: 20
+            bold: True
+            on_release:
+                app.root.current = "info"
+                root.manager.transition.direction = "right"
+        
+        Label:
+            text:"symmetric cipher method"
+            font_size: 20
+            pos_hint:{"x": 0.025, "top": 0.1}
+            size_hint: 0.25, 0.1
+            color: 138/255,197/255,195/255
+            bold: True
+            italic: True
+
+            
+<rsawindow>:
+    rsamsg: rsamsg
+    p: p
+    q: q
+    
+    FloatLayout:
+        
+        canvas:
+            Color:
+                rgb: 1,1,1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+    
+        Label:
+            text:"Message to encrypt: "
+            font_size: 20
+            pos_hint:{"x": 0, "top": 1}
+            size_hint: 0.3, 0.1
+            color: 143/255, 141/255, 142/255
+            bold: True
+        
+        TextInput:
+            id: rsamsg
+            font_size: 16
+            multiline: True
+            pos_hint: {"x": 0.025 , "top":0.9}
+            size_hint: 0.95, 0.6
+               
+            
+        Label:
+            text:"Prime number p: "
+            font_size: 20
+            pos_hint:{"x": 0, "top": 0.275}
+            size_hint: 0.2, 0.1
+            color: 143/255, 141/255, 142/255
+            bold: True
+        
+        TextInput:
+            id: p
+            font_size: 20
+            multiline: True
+            pos_hint: {"x": 0.2 , "top":0.275}
+            size_hint: 0.4, 0.075
+            
+        Label:
+            text:"Prime number q: "
+            font_size: 20
+            pos_hint:{"x": 0, "top": 0.175}
+            size_hint: 0.2, 0.1
+            color: 143/255, 141/255, 142/255
+            bold: True
+            input_filter: "float"
+        
+        TextInput:
+            id: q
+            font_size: 20
+            multiline: True
+            pos_hint: {"x": 0.2 , "top":0.175}
+            size_hint: 0.4, 0.075
+            input_filter: "float"
+        
+              
+        Button:
+            text: 'Encrypt!'
+            pos_hint:{"x":0.625, "top":0.175}
+            size_hint:0.2,0.1
+            background_color : 0,0,0,0
+            color: 138/255,197/255,195/255
+            font_size: 40
+            bold: True
+            on_release:
+                root.encrypt()
+                root.manager.transition.direction = "left"
+            
+            
+        Button:
+            pos_hint:{"x":0.8, "y":0.0}
+            size_hint:0.2,0.1
+            background_color : 0,0,0,0
+            text: "Return"
+            color: 143/255, 141/255, 142/255
+            font_size: 30
+            bold: True
+            on_release:
+                app.root.current = "encrypt"
+                root.manager.transition.direction = "right"
+        
+        Button:
+            pos_hint:{"x":0.8, "y":0.9}
+            size_hint:0.2,0.1
+            background_color : 0,0,0,0
+            text: "Info"
+            color: 120/255, 120/255, 200/255
+            font_size: 20
+            bold: True
+            on_release:
+                app.root.current = "info"
+                root.manager.transition.direction = "right"
+        
+        Label:
+            text:"RSA cipher method"
+            font_size: 20
+            pos_hint:{"x": 0.025, "top": 0.1}
+            size_hint: 0.25, 0.1
+            color: 138/255,197/255,195/255
+            bold: True
+            italic: True
+        
+        
+
+        
+<finalwindow>
+    originalmsg: originalmsg
+    finalmsg : finalmsg
+    key: key
+    txt: txt
+
+    FloatLayout:
+        canvas:
+            Color:
+                rgb: 1,1,1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+    
+        Label:
+            id: txt
+            text:"Your original message: "
+            font_size: 20
+            pos_hint:{"x": 0, "top": 1}
+            size_hint: 0.3, 0.1
+            color: 143/255, 141/255, 142/255
+            bold: True
+        
+        TextInput:
+            id: originalmsg
+            font_size: 16
+            multiline: True
+            pos_hint: {"x": 0.025 , "top":0.9}
+            size_hint: 0.4625, 0.6
+        
+        Label:
+            id: txt
+            text:"Your crypted message: "
+            font_size: 20
+            pos_hint:{"x": 0.5, "top": 1}
+            size_hint: 0.3, 0.1
+            color: 143/255, 141/255, 142/255
+            bold: True
+        
+        TextInput:
+            id: finalmsg
+            font_size: 16
+            multiline: True
+            pos_hint: {"x": 0.5125 , "top":0.9}
+            size_hint: 0.4625, 0.6
+            
+        Label:
+            text:"your key: "
+            font_size: 20
+            pos_hint:{"x": 0, "top": 0.275}
+            size_hint: 0.2, 0.1
+            color: 143/255, 141/255, 142/255
+            bold: True
+        
+        TextInput:
+            id: key
+            font_size: 20
+            multiline: True
+            pos_hint: {"x": 0.2 , "top":0.275}
+            size_hint: 0.7, 0.2
+            input_filter: "float"
+            
+        Button:
+            pos_hint:{"x":0.8, "y":0.0}
+            size_hint:0.2,0.1
+            background_color : 0,0,0,0
+            text: "Return"
+            color: 143/255, 141/255, 142/255
+            font_size: 30
+            bold: True
+            on_release:
+                root.getback()
+                root.manager.transition.direction = "right"
+        
+
+<dcaesarwindow>:
+    caesarmsg: caesarmsg
+    key: key
+    
+    FloatLayout:
+        
+        canvas:
+            Color:
+                rgb: 1,1,1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+    
+        Label:
+            text:"Message to decrypt: "
+            font_size: 20
+            pos_hint:{"x": 0, "top": 1}
+            size_hint: 0.3, 0.1
+            color: 143/255, 141/255, 142/255
+            bold: True
+        
+        TextInput:
+            id: caesarmsg
+            font_size: 16
+            multiline: True
+            pos_hint: {"x": 0.025 , "top":0.9}
+            size_hint: 0.95, 0.6
+               
+            
+        Label:
+            text:"Insert the key: "
+            font_size: 20
+            pos_hint:{"x": 0, "top": 0.275}
+            size_hint: 0.2, 0.1
+            color: 143/255, 141/255, 142/255
+            bold: True
+        
+        TextInput:
+            id: key
+            font_size: 20
+            multiline: True
+            pos_hint: {"x": 0.2 , "top":0.275}
+            size_hint: 0.4, 0.1
+            input_filter: "float"
+        
+              
+        Button:
+            text: 'Decrypt!'
+            pos_hint:{"x":0.625, "top":0.275}
+            size_hint:0.2,0.1
+            background_color : 0,0,0,0
+            color: 138/255,197/255,195/255
+            font_size: 40
+            bold: True
+            on_release:
+                root.decrypt()
+                root.manager.transition.direction = "left"
+            
+            
+        Button:
+            pos_hint:{"x":0.8, "y":0.0}
+            size_hint:0.2,0.1
+            background_color : 0,0,0,0
+            text: "Return"
+            color: 143/255, 141/255, 142/255
+            font_size: 30
+            bold: True
+            on_release:
+                app.root.current = "decrypt"
+                root.manager.transition.direction = "right"
+        
+        Button:
+            pos_hint:{"x":0.8, "y":0.9}
+            size_hint:0.2,0.1
+            background_color : 0,0,0,0
+            text: "Info"
+            color: 120/255, 120/255, 200/255
+            font_size: 20
+            bold: True
+            on_release:
+                app.root.current = "info"
+                root.manager.transition.direction = "right"
+        
+        Label:
+            text:"Caesar decipher method"
+            font_size: 20
+            pos_hint:{"x": 0.025, "top": 0.1}
+            size_hint: 0.25, 0.1
+            color: 138/255,197/255,195/255
+            bold: True
+            italic: True
+
+<dsubstitutionwindow>:
+    substitutionmsg: substitutionmsg
+    key: key
+    
+    FloatLayout:
+        
+        canvas:
+            Color:
+                rgb: 1,1,1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+    
+        Label:
+            text:"Message to decrypt: "
+            font_size: 20
+            pos_hint:{"x": 0, "top": 1}
+            size_hint: 0.3, 0.1
+            color: 143/255, 141/255, 142/255
+            bold: True
+        
+        TextInput:
+            id: substitutionmsg
+            font_size: 16
+            multiline: True
+            pos_hint: {"x": 0.025 , "top":0.9}
+            size_hint: 0.95, 0.5
+        
+        Label:
+            text:"your key: "
+            font_size: 20
+            pos_hint:{"x": 0, "top": 0.275}
+            size_hint: 0.2, 0.1
+            color: 143/255, 141/255, 142/255
+            bold: True
+        
+              
+        TextInput:
+            id: key
+            font_size: 20
+            multiline: True
+            pos_hint: {"x": 0.2 , "top":0.275}
+            size_hint: 0.7, 0.2
+              
+        Button:
+            text: 'Decrypt!'
+            pos_hint:{"x":0.725, "top":0.375}
+            size_hint:0.2,0.1
+            background_color : 0,0,0,0
+            color: 138/255,197/255,195/255
+            font_size: 40
+            bold: True
+            on_release:
+                root.decrypt()
+                root.manager.transition.direction = "left"
+            
+            
+        Button:
+            pos_hint:{"x":0.8, "y":0.0}
+            size_hint:0.2,0.1
+            background_color : 0,0,0,0
+            text: "Return"
+            color: 143/255, 141/255, 142/255
+            font_size: 30
+            bold: True
+            on_release:
+                app.root.current = "decrypt"
+                root.manager.transition.direction = "right"
+        
+        Button:
+            pos_hint:{"x":0.8, "y":0.9}
+            size_hint:0.2,0.1
+            background_color : 0,0,0,0
+            text: "Info"
+            color: 120/255, 120/255, 200/255
+            font_size: 20
+            bold: True
+            on_release:
+                app.root.current = "info"
+                root.manager.transition.direction = "right"
+        
+        Label:
+            text:"substitution decipher method"
+            font_size: 20
+            pos_hint:{"x": 0.025, "top": 0.1}
+            size_hint: 0.25, 0.1
+            color: 138/255,197/255,195/255
+            bold: True
+            italic: True
+
+<dsymmetricwindow>:
+    symmetricmsg: symmetricmsg
+    key: key
+    
+    FloatLayout:
+        
+        canvas:
+            Color:
+                rgb: 1,1,1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+    
+        Label:
+            text:"Message to decrypt: "
+            font_size: 20
+            pos_hint:{"x": 0, "top": 1}
+            size_hint: 0.3, 0.1
+            color: 143/255, 141/255, 142/255
+            bold: True
+        
+        TextInput:
+            id: symmetricmsg
+            font_size: 16
+            multiline: True
+            pos_hint: {"x": 0.025 , "top":0.9}
+            size_hint: 0.95, 0.6
+               
+            
+        Label:
+            text:"Insert the key: "
+            font_size: 20
+            pos_hint:{"x": 0, "top": 0.275}
+            size_hint: 0.2, 0.1
+            color: 143/255, 141/255, 142/255
+            bold: True
+        
+        TextInput:
+            id: key
+            font_size: 20
+            multiline: True
+            pos_hint: {"x": 0.2 , "top":0.275}
+            size_hint: 0.4, 0.1
+        
+              
+        Button:
+            text: 'Decrypt!'
+            pos_hint:{"x":0.625, "top":0.275}
+            size_hint:0.2,0.1
+            background_color : 0,0,0,0
+            color: 138/255,197/255,195/255
+            font_size: 40
+            bold: True
+            on_release:
+                root.decrypt()
+                root.manager.transition.direction = "left"
+            
+            
+        Button:
+            pos_hint:{"x":0.8, "y":0.0}
+            size_hint:0.2,0.1
+            background_color : 0,0,0,0
+            text: "Return"
+            color: 143/255, 141/255, 142/255
+            font_size: 30
+            bold: True
+            on_release:
+                app.root.current = "decrypt"
+                root.manager.transition.direction = "right"
+        
+        Button:
+            pos_hint:{"x":0.8, "y":0.9}
+            size_hint:0.2,0.1
+            background_color : 0,0,0,0
+            text: "Info"
+            color: 120/255, 120/255, 200/255
+            font_size: 20
+            bold: True
+            on_release:
+                app.root.current = "info"
+                root.manager.transition.direction = "right"
+        
+        Label:
+            text:"symmetric decipher method"
+            font_size: 20
+            pos_hint:{"x": 0.025, "top": 0.1}
+            size_hint: 0.25, 0.1
+            color: 138/255,197/255,195/255
+            bold: True
+            italic: True
+
+<drsawindow>:
+    rsamsg: rsamsg
+    private_key: private_key
+    
+    FloatLayout:
+        
+        canvas:
+            Color:
+                rgb: 1,1,1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+    
+        Label:
+            text:"Message to decrypt: "
+            font_size: 20
+            pos_hint:{"x": 0, "top": 1}
+            size_hint: 0.3, 0.1
+            color: 143/255, 141/255, 142/255
+            bold: True
+        
+        TextInput:
+            id: rsamsg
+            font_size: 16
+            multiline: True
+            pos_hint: {"x": 0.025 , "top":0.9}
+            size_hint: 0.95, 0.6
+               
+            
+        Label:
+            text:"Private key: "
+            font_size: 20
+            pos_hint:{"x": 0, "top": 0.275}
+            size_hint: 0.2, 0.1
+            color: 143/255, 141/255, 142/255
+            bold: True
+        
+        TextInput:
+            id: private_key
+            font_size: 20
+            multiline: True
+            pos_hint: {"x": 0.2 , "top":0.275}
+            size_hint: 0.4, 0.075
+            
+              
+        Button:
+            text: 'Decrypt!'
+            pos_hint:{"x":0.625, "top":0.175}
+            size_hint:0.2,0.1
+            background_color : 0,0,0,0
+            color: 138/255,197/255,195/255
+            font_size: 40
+            bold: True
+            on_release:
+                root.decrypt()
+                root.manager.transition.direction = "left"
+            
+            
+        Button:
+            pos_hint:{"x":0.8, "y":0.0}
+            size_hint:0.2,0.1
+            background_color : 0,0,0,0
+            text: "Return"
+            color: 143/255, 141/255, 142/255
+            font_size: 30
+            bold: True
+            on_release:
+                app.root.current = "decrypt"
+                root.manager.transition.direction = "right"
+        
+        Button:
+            pos_hint:{"x":0.8, "y":0.9}
+            size_hint:0.2,0.1
+            background_color : 0,0,0,0
+            text: "Info"
+            color: 120/255, 120/255, 200/255
+            font_size: 20
+            bold: True
+            on_release:
+                app.root.current = "info"
+                root.manager.transition.direction = "right"
+        
+        Label:
+            text:"RSA cipher method"
+            font_size: 20
+            pos_hint:{"x": 0.025, "top": 0.1}
+            size_hint: 0.25, 0.1
+            color: 138/255,197/255,195/255
+            bold: True
+            italic: True
+
+
+<dfinalwindow>
+    originalmsg: originalmsg
+    finalmsg : finalmsg
+    key: key
+    txt: txt
+
+    FloatLayout:
+        canvas:
+            Color:
+                rgb: 1,1,1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+    
+        Label:
+            id: txt
+            text:"Your encrypted message: "
+            font_size: 20
+            pos_hint:{"x": 0, "top": 1}
+            size_hint: 0.3, 0.1
+            color: 143/255, 141/255, 142/255
+            bold: True
+        
+        TextInput:
+            id: originalmsg
+            font_size: 16
+            multiline: True
+            pos_hint: {"x": 0.025 , "top":0.9}
+            size_hint: 0.4625, 0.6
+        
+        Label:
+            id: txt
+            text:"Your deciphered message: "
+            font_size: 20
+            pos_hint:{"x": 0.5, "top": 1}
+            size_hint: 0.3, 0.1
+            color: 143/255, 141/255, 142/255
+            bold: True
+        
+        TextInput:
+            id: finalmsg
+            font_size: 16
+            multiline: True
+            pos_hint: {"x": 0.5125 , "top":0.9}
+            size_hint: 0.4625, 0.6
+            
+        Label:
+            text:"your key: "
+            font_size: 20
+            pos_hint:{"x": 0, "top": 0.275}
+            size_hint: 0.2, 0.1
+            color: 143/255, 141/255, 142/255
+            bold: True
+        
+        TextInput:
+            id: key
+            font_size: 20
+            multiline: True
+            pos_hint: {"x": 0.2 , "top":0.275}
+            size_hint: 0.7, 0.2
+            input_filter: "float"
+            
+        Button:
+            pos_hint:{"x":0.8, "y":0.0}
+            size_hint:0.2,0.1
+            background_color : 0,0,0,0
+            text: "Return"
+            color: 143/255, 141/255, 142/255
+            font_size: 30
+            bold: True
+            on_release:
+                root.getback()
+                root.manager.transition.direction = "right"
+                
+<infowindow>:
+    text: text
+    FloatLayout:
+    
+        canvas:
+            Color:
+                rgb: 1,1,1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        
+        TextInput:
+            id: text
+            pos_hint:{"x": 0.025, "top": 0.975}
+            size_hint: 0.95, 0.9
+            color: 143/255, 141/255, 142/255
+            bold: True
+            font_size: 14
+        
+            
+        Button:
+            pos_hint:{"x":0.8, "y":0.0}
+            size_hint:0.2,0.1
+            background_color : 0,0,0,0
+            text: "Return"
+            color: 143/255, 141/255, 142/255
+            font_size: 30
+            bold: True
+            on_release:
+                root.getback()
+                root.manager.transition.direction = "right" 
+
+
+            
+            
+                

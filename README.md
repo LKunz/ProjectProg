@@ -17,9 +17,9 @@ In order to run the interface you will need the kivy library. Click [here](https
 ```
 git clone https://github.com/LKunz/ProjectProg.git
 cd ProjectProg
-python main.py
+python3 main.py (Linux, Windows)
+kivy3 main.py (OSX)
 ```
-Note that we only tried on Linux.
 
 ### Code Examples
 See [implementation_examples.py](implementation_examples.py) for examples on the algorithms.

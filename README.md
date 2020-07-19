@@ -1,6 +1,6 @@
 # Project Programming
 
-The goal of this project is to implement some encryption and decryption algorithms by means of a Graphical User Interface (GUI).
+The goal of this project is to implement some encryption and decryption algorithms and integrate them in a Graphical User Interface (GUI).
 
 ### Content
 * Caesar cipher (Caesar.py)
